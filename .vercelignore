@@ -1,0 +1,20 @@
+# Files `vercel deploy` must not upload. The CLI does not read .gitignore, so this mirrors it:
+# local QA output, the build-time font download (its license forbids redistribution), original
+# photo sources and local environment files. Git-connected deployments clone the repository and
+# never see these anyway.
+/qa-output
+/.lighthouse
+/test-results
+/playwright-report
+/coverage
+/src/fonts/vendor
+/images/*.png
+/images/*.jpg
+/images/*.jpeg
+/images/*.PNG
+/images/*.JPG
+/images/*.JPEG
+/images/*.tmp
+*.tsbuildinfo
+next-env.d.ts
+.env*
