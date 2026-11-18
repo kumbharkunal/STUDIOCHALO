@@ -97,9 +97,11 @@ Leave `NEXT_PUBLIC_SITE_URL` unset on Vercel until `studiochalo.in` is registere
 
 ## Deploy to Vercel
 
-The Vercel project `studiochalo` is connected to this repository: every push to `main` redeploys https://studiochalo.vercel.app, and other branches get preview URLs. The framework (Next.js), build command and output are detected automatically.
+Production is the Vercel project `studiochalo` (scope `kunals-projects-a6e41378`), live at https://studiochalo.vercel.app. The framework (Next.js), build command and output are detected automatically, and no environment variables are needed.
 
-From the terminal instead: `vercel deploy` (preview) and `vercel deploy --prod` (production).
+- **Deploy from this folder:** `vercel deploy --prod` (production) or `vercel deploy` (a preview URL). `.vercelignore` keeps local QA output, the font download and photo originals out of the upload, because the CLI does not read `.gitignore`.
+- **Deploy on every push:** the project is not connected to GitHub yet, because Vercel's GitHub app cannot see this repository. Give it access (GitHub, Settings, Applications, Vercel, Configure, Repository access: add `STUDIOCHALO`), then run `vercel git connect`. From then on every push to `main` redeploys production, and other branches get preview URLs.
+- `vercel link` wrote `.env.local` with a short-lived `VERCEL_OIDC_TOKEN` for local use. It is git-ignored and never uploaded; never commit it.
 
 At launch: register the domain in the studio's name, add it in Vercel (Project, Settings, Domains), set `NEXT_PUBLIC_SITE_URL=https://studiochalo.in` and `NEXT_PUBLIC_DEMO_MODE=false`, and redeploy.
 

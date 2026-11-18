@@ -42,7 +42,8 @@ A single-page Next.js 16 demo for Studio Chalo, a wedding photography and films 
 - Port 3000 may already be used by another local project; QA never relies on it.
 
 ## Deployment
-- GitHub `kumbharkunal/STUDIOCHALO` (public), branch `main`. Vercel project `studiochalo` builds `main` to https://studiochalo.vercel.app. No environment variables are needed for the demo (demo mode is on by default; the site URL comes from Vercel).
+- GitHub `kumbharkunal/STUDIOCHALO` (public), branch `main`. Vercel project `studiochalo` (scope `kunals-projects-a6e41378`) serves https://studiochalo.vercel.app. Until the repository is connected (`vercel git connect`, once Vercel's GitHub app can see it), deploy with `vercel deploy --prod` from this folder; `.vercelignore` mirrors `.gitignore` for that upload.
+- No environment variables are needed for the demo (demo mode is on by default; the site URL comes from Vercel). `.env.local` holds the CLI's OIDC token: git-ignored, never commit it.
 
 ## Gotchas
 - Turbopack's persistent cache can serve a stale stylesheet after a CSS edit (dev and build). If a CSS change is missing, stop the server, run `npm run clean`, and start again.
